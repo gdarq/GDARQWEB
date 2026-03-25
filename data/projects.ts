@@ -64,7 +64,7 @@ export const projects: Project[] = [
     slug: "crocco",
     name: "Crocco",
     location: "Valle Escondido",
-    category: "Comercial / Gastronómico",
+    category: "Comercial / Retail",
     description: "Espacio comercial Crocco en Valle Escondido, diseñado para maximizar la capacidad de atención con materiales nobles y modernos.",
     coverImage: "/projects/crocco/01_Crocco_Valle.jpg",
     images: [
