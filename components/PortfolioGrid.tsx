@@ -32,12 +32,12 @@ export default function PortfolioGrid() {
           </motion.p>
         </div>
 
-        {/* Masonry or Grid */}
+        {/* Uniform Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {projects.map((project, index) => (
             <div 
               key={project.slug} 
-              className={index === 0 || index === 3 || index === 4 || index === 7 ? "lg:col-span-2" : "col-span-1"}
+              className="col-span-1"
             >
               <ProjectCard project={project} index={index} />
             </div>
