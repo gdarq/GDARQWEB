@@ -132,5 +132,28 @@ export const projects: Project[] = [
       "/projects/zhoue/6_Zhoue.jpg"
     ],
     year: "2023"
+  },
+  {
+    slug: "rustico-urca",
+    name: "Rústico",
+    location: "Urca, Córdoba",
+    category: "Comercial / Gastronómico",
+    description: "Desarrollo de legajo técnico ejecutivo y visualización arquitectónica para el espacio Rústico en Urca. Proyecto donde destacan materiales nobles y un detallado despliegue técnico para su construcción. (Se muestran fragmentos del legajo protegidos por privacidad).",
+    coverImage: "/projects/rustico-urca/render-1.webp",
+    images: [
+      "/projects/rustico-urca/render-1.webp",
+      "/projects/rustico-urca/render-2.webp",
+      "/projects/rustico-urca/render-3.webp",
+      "/projects/rustico-urca/render-4.webp",
+      "/projects/rustico-urca/render-5.webp",
+      "/projects/rustico-urca/render-6.webp",
+      "/projects/rustico-urca/blueprint-1.webp",
+      "/projects/rustico-urca/blueprint-2.webp",
+      "/projects/rustico-urca/blueprint-3.webp",
+      "/projects/rustico-urca/blueprint-4.webp",
+      "/projects/rustico-urca/blueprint-5.webp",
+      "/projects/rustico-urca/blueprint-6.webp"
+    ],
+    year: "2024"
   }
 ];
