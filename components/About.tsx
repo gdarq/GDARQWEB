@@ -42,15 +42,15 @@ export default function About() {
               Gabriela Dodelson
             </h3>
             
-            <div className="space-y-6 text-gray-400 font-light text-lg leading-relaxed mb-10">
+            <div className="space-y-6 text-gray-400 font-light text-lg leading-relaxed mb-10 text-balance">
               <p>
-                Soy arquitecta especializada en el diseño y desarrollo de espacios comerciales. Mi enfoque combina estética contemporánea con funcionalidad absoluta para crear espacios que no solo se ven bien, sino que generan ventas reales para mis clientes.
+                Graduada de la FAUD-UNC (2015), he consolidado mi carrera en el exigente mundo de la arquitectura comercial argentina.
               </p>
               <p>
-                Con base en Córdoba, Argentina, he colaborado con marcas líderes en el sector retail como Alma Paz, Arka, La Dolfina y Zhoue, entendiendo las necesidades específicas de la exhibición comercial, iluminación estratégica y flujo de usuarios.
+                Desde 2018, transformo visiones de marca en legajos técnicos rigurosos y realidades tangibles. Mi enfoque combina la precisión técnica con el entendimiento profundo de los objetivos comerciales y de branding de cada cliente.
               </p>
               <p>
-                <em>*Nota: Este es un texto placeholder que será reemplazado con tu bio real y experiencia profesional.*</em>
+                Mi fuerte es la comunicación visual del proyecto: domino herramientas de vanguardia como Lumion, SketchUp + V-Ray y Revit. Esto me permite ofrecer una experiencia inmersiva y extremadamente precisa desde la primera idea conceptual hasta el último plano de obra.
               </p>
             </div>
             

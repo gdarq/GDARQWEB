@@ -35,18 +35,19 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           src={project.coverImage}
           alt={`Proyecto ${project.name}`}
           fill
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          quality={100}
+          sizes="100vw"
           className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
         />
         
-        {/* Overlay gradient que aparece en hover/mobile */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-80 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 md:p-8">
-          <div className="transform md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-300">
+        {/* Overlay gradient que está siempre visible, se intensifica en hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6 md:p-8">
+          <div className="transform transition-transform duration-300">
             <div className="flex justify-between items-end mb-2">
               <h3 className="text-2xl md:text-3xl font-heading font-bold text-white tracking-tight">
                 {project.name}
               </h3>
-              <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center transform md:scale-0 md:group-hover:scale-100 origin-center transition-all duration-300">
+              <div className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center transform md:scale-90 group-hover:scale-110 origin-center transition-all duration-300">
                 <ArrowUpRightIcon className="w-5 h-5" />
               </div>
             </div>
