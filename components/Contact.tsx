@@ -11,11 +11,11 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("loading");
-    
+
     const formData = new FormData(e.currentTarget);
-    
+
     // REEMPLAZAR ESTA CLAVE POR LA QUE TE ENVIEN DE WEB3FORMS:
-    formData.append("access_key", "AQUI_PONES_TU_CLAVE_DE_WEB3FORMS");
+    formData.append("access_key", "439383c6-3887-4cbd-9a5c-991267dae2b9");
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -42,7 +42,7 @@ export default function Contact() {
       <div className="container mx-auto px-6 md:px-12">
         <div className="max-w-4xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-            
+
             {/* Contact Info */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -57,10 +57,10 @@ export default function Contact() {
               <p className="text-gray-400 font-light text-lg mb-10 leading-relaxed text-balance">
                 Cada gran espacio comienza con una conversación. Contame sobre tu marca, tus objetivos y los desafíos de tu próximo proyecto.
               </p>
-              
+
               <div className="space-y-6">
-                <a 
-                  href="mailto:gabriela.dodelson@gmail.com" 
+                <a
+                  href="mailto:gabriela.dodelson@gmail.com"
                   className="group flex items-center gap-4 p-4 border border-white/10 hover:border-white/30 bg-white/5 transition-all"
                 >
                   <div className="w-12 h-12 bg-white/10 flex items-center justify-center rounded-none group-hover:bg-white group-hover:text-black transition-colors">
@@ -72,8 +72,8 @@ export default function Contact() {
                   </div>
                 </a>
 
-                <a 
-                  href="https://wa.me/5493518642423" 
+                <a
+                  href="https://wa.me/5493518642423"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="group flex items-center gap-4 p-4 border border-white/10 hover:border-white/30 bg-white/5 transition-all"
@@ -106,7 +106,7 @@ export default function Contact() {
                   </div>
                   <h4 className="text-2xl font-heading font-bold text-white mb-2">¡Mensaje Enviado!</h4>
                   <p className="text-gray-400">Gracias por contactarte. Te responderé a la brevedad.</p>
-                  <button 
+                  <button
                     onClick={() => setStatus("idle")}
                     className="mt-8 px-6 py-2 border border-white/30 text-white hover:bg-white hover:text-black transition-colors"
                   >
@@ -121,22 +121,22 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Nombre completo</label>
-                  <input 
-                    type="text" 
-                    id="name" 
+                  <input
+                    type="text"
+                    id="name"
                     name="name"
                     className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-white transition-colors"
                     placeholder="Tu nombre"
                     required
                   />
                 </div>
-                
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-400 mb-2">Email</label>
-                    <input 
-                      type="email" 
-                      id="email" 
+                    <input
+                      type="email"
+                      id="email"
                       name="email"
                       className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-white transition-colors"
                       placeholder="nombre@empresa.com"
@@ -145,9 +145,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-400 mb-2">Teléfono</label>
-                    <input 
-                      type="tel" 
-                      id="phone" 
+                    <input
+                      type="tel"
+                      id="phone"
                       name="phone"
                       className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-white transition-colors"
                       placeholder="+54 9..."
@@ -157,8 +157,8 @@ export default function Contact() {
 
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">Mensaje</label>
-                  <textarea 
-                    id="message" 
+                  <textarea
+                    id="message"
                     name="message"
                     rows={4}
                     className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-white transition-colors resize-none"
@@ -171,7 +171,7 @@ export default function Contact() {
                   <p className="text-red-400 text-sm mt-2">{errorMessage}</p>
                 )}
 
-                <button 
+                <button
                   type="submit"
                   disabled={status === "loading"}
                   className="mt-4 w-full bg-white text-black font-medium py-4 hover:bg-gray-200 transition-colors uppercase tracking-widest text-sm disabled:opacity-50 disabled:cursor-not-allowed"
