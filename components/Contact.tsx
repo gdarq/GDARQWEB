@@ -1,9 +1,42 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/24/outline";
 
 export default function Contact() {
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+    
+    const formData = new FormData(e.currentTarget);
+    
+    // REEMPLAZAR ESTA CLAVE POR LA QUE TE ENVIEN DE WEB3FORMS:
+    formData.append("access_key", "AQUI_PONES_TU_CLAVE_DE_WEB3FORMS");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setStatus("success");
+        e.currentTarget.reset();
+      } else {
+        setStatus("error");
+        setErrorMessage(data.message || "Hubo un error al enviar tu mensaje.");
+      }
+    } catch (err) {
+      setStatus("error");
+      setErrorMessage("No se pudo conectar con el servidor.");
+    }
+  };
+
   return (
     <section id="contact" className="py-24 bg-[#0a0a0a] border-t border-white/10">
       <div className="container mx-auto px-6 md:px-12">
@@ -56,20 +89,42 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Contact Form Placeholder */}
+            {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white/5 p-8 border border-white/10"
+              className="bg-white/5 p-8 border border-white/10 relative"
             >
-              <form className="flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
+              {status === "success" ? (
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 backdrop-blur-sm z-10 p-8 text-center border border-white/20">
+                  <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center mb-6">
+                    <svg className="w-8 h-8 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    </svg>
+                  </div>
+                  <h4 className="text-2xl font-heading font-bold text-white mb-2">¡Mensaje Enviado!</h4>
+                  <p className="text-gray-400">Gracias por contactarte. Te responderé a la brevedad.</p>
+                  <button 
+                    onClick={() => setStatus("idle")}
+                    className="mt-8 px-6 py-2 border border-white/30 text-white hover:bg-white hover:text-black transition-colors"
+                  >
+                    Enviar otro mensaje
+                  </button>
+                </div>
+              ) : null}
+
+              <form className="flex flex-col gap-6" onSubmit={handleSubmit}>
+                <input type="hidden" name="subject" value="Nuevo contacto desde tu Portfolio Web" />
+                <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
+
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-2">Nombre completo</label>
                   <input 
                     type="text" 
                     id="name" 
+                    name="name"
                     className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-white transition-colors"
                     placeholder="Tu nombre"
                     required
@@ -82,6 +137,7 @@ export default function Contact() {
                     <input 
                       type="email" 
                       id="email" 
+                      name="email"
                       className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-white transition-colors"
                       placeholder="nombre@empresa.com"
                       required
@@ -92,6 +148,7 @@ export default function Contact() {
                     <input 
                       type="tel" 
                       id="phone" 
+                      name="phone"
                       className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-white transition-colors"
                       placeholder="+54 9..."
                     />
@@ -102,6 +159,7 @@ export default function Contact() {
                   <label htmlFor="message" className="block text-sm font-medium text-gray-400 mb-2">Mensaje</label>
                   <textarea 
                     id="message" 
+                    name="message"
                     rows={4}
                     className="w-full bg-transparent border-b border-white/20 px-0 py-3 text-white focus:outline-none focus:border-white transition-colors resize-none"
                     placeholder="Contame sobre tu proyecto..."
@@ -109,11 +167,16 @@ export default function Contact() {
                   ></textarea>
                 </div>
 
+                {status === "error" && (
+                  <p className="text-red-400 text-sm mt-2">{errorMessage}</p>
+                )}
+
                 <button 
                   type="submit"
-                  className="mt-4 w-full bg-white text-black font-medium py-4 hover:bg-gray-200 transition-colors uppercase tracking-widest text-sm"
+                  disabled={status === "loading"}
+                  className="mt-4 w-full bg-white text-black font-medium py-4 hover:bg-gray-200 transition-colors uppercase tracking-widest text-sm disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Enviar Mensaje
+                  {status === "loading" ? "Enviando..." : "Enviar Mensaje"}
                 </button>
               </form>
             </motion.div>

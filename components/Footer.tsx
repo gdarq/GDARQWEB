@@ -47,10 +47,6 @@ export default function Footer() {
 
         <div className="flex flex-col md:flex-row justify-between items-center pt-8 border-t border-white/10 text-xs text-gray-500">
           <p>© {currentYear} Gabriela Dodelson Arquitectura. Todos los derechos reservados.</p>
-          <div className="mt-4 md:mt-0 flex space-x-4">
-            <Link href="#" className="hover:text-white transition-colors">Instagram</Link>
-            {/* Si tenes Behance o LinkedIn, agregalos acá */}
-          </div>
         </div>
       </div>
     </footer>
