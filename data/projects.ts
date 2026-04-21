@@ -155,23 +155,5 @@ export const projects: Project[] = [
       "/projects/rustico-urca/blueprint-6.webp"
     ],
     year: "2024"
-  },
-  {
-    slug: "templo-futbol",
-    name: "Templo del Fútbol",
-    location: "Abasto Shopping",
-    category: "Retail Deportivo",
-    description: "Diseño y desarrollo de espacio comercial para Templo del Fútbol en Abasto Shopping. Un entorno dinámico enfocado en la exhibición estratégica de indumentaria y equipamiento deportivo, optimizando la experiencia inmersiva del usuario.",
-    coverImage: "/projects/templo-futbol/01_Templo del Fútbol.jpg",
-    images: [
-      "/projects/templo-futbol/01_Templo del Fútbol.jpg",
-      "/projects/templo-futbol/02_Templo del Fútbol.jpg",
-      "/projects/templo-futbol/03_Templo del Fútbol.jpg",
-      "/projects/templo-futbol/04_Templo del Fútbol.jpg",
-      "/projects/templo-futbol/05_Templo del Fútbol.jpg",
-      "/projects/templo-futbol/06_Templo del Fútbol.jpg",
-      "/projects/templo-futbol/07_Templo del Fútbol.jpg"
-    ],
-    year: "2024"
   }
 ];
